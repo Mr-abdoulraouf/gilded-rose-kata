@@ -18,6 +18,14 @@ sourceCompatibility = '1.8'
 
 test {
     useJUnitPlatform()
+
+    testLogging.showStandardStreams = true
+
+    filter {
+        includeTestsMatching "com.gildedrose.GildedRoseTest"
+
+    }
+    testLogging.events("PASSED", "SKIPPED", "FAILED","STANDARD_OUT","STANDARD_ERROR")
 }
 
 task texttest(type: JavaExec) {
