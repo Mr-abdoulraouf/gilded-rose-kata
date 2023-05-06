@@ -16,6 +16,10 @@ class GildedRose {
     private void updateItem(Item item) {
         updateItemQuality(item);
 
+        updateItemSellIn(item);
+    }
+
+    private void updateItemSellIn(Item item) {
         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             item.sellIn = item.sellIn - 1;
         }
