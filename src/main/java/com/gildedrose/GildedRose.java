@@ -41,11 +41,7 @@ class GildedRose {
         }
     }
 
-    private void decrementQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality -= 1;
-        }
-    }
+
 
     private void updateItemQuality(Item item) {
         if (item.name.equals("Aged Brie")) {
@@ -72,6 +68,12 @@ class GildedRose {
     private void incrementQuality(Item item) {
         if (item.quality < 50) {
             item.quality += 1;
+        }
+    }
+
+    private void decrementQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality -= 1;
         }
     }
 }
