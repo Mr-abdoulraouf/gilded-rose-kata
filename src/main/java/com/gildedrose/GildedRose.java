@@ -22,17 +22,7 @@ class GildedRose {
                 updateAgedBrie(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                incrementQuality(item);
-
-                if (item.sellIn < 11) {
-                    incrementQuality(item);
-                }
-
-                if (item.sellIn < 6) {
-                    incrementQuality(item);
-                }
-                if (item.sellIn < 0)
-                item.quality -= item.quality;
+                updateBackstagePasses(item);
                 break;
             case "Sulfuras, Hand of Ragnaros":
                 break;
@@ -49,6 +39,21 @@ class GildedRose {
         if (item.sellIn < 0)
         incrementQuality(item);
     }
+
+    private void updateBackstagePasses(Item item) {
+        incrementQuality(item);
+
+        if (item.sellIn < 11) {
+            incrementQuality(item);
+        }
+
+        if (item.sellIn < 6) {
+            incrementQuality(item);
+        }
+        if (item.sellIn < 0)
+            item.quality -= item.quality;
+    }
+
 
     private void incrementQuality(Item item) {
         if (item.quality < 50) {
