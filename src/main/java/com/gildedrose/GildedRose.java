@@ -24,6 +24,9 @@ class GildedRose {
             case "Backstage passes to a TAFKAL80ETC concert":
                 updateBackstagePasses(item);
                 break;
+            case "Conjured Mana Cake":
+                updateConjured(item);
+                break;
             case "Sulfuras, Hand of Ragnaros":
                 break;
             default:
@@ -50,6 +53,12 @@ class GildedRose {
         }
         if (item.sellIn < 0)
             item.quality -= item.quality;
+    }
+
+
+    private void updateConjured(Item item) {
+        decrementQuality(item);
+        decrementQuality(item);
     }
 
     private void updateOtherItem(Item item) {
