@@ -19,9 +19,7 @@ class GildedRose {
         }
         switch (item.name) {
             case "Aged Brie":
-                incrementQuality(item);
-                if (item.sellIn < 0)
-                incrementQuality(item);
+                updateAgedBrie(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 incrementQuality(item);
@@ -44,6 +42,12 @@ class GildedRose {
                 decrementQuality(item);
                 break;
         }
+    }
+
+    private void updateAgedBrie(Item item) {
+        incrementQuality(item);
+        if (item.sellIn < 0)
+        incrementQuality(item);
     }
 
     private void incrementQuality(Item item) {
