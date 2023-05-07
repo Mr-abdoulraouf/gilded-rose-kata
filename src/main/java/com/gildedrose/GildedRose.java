@@ -25,20 +25,21 @@ class GildedRose {
             item.sellIn -= 1;
         }
 
-        if (item.sellIn < 0) {
-            switch (item.name) {
-                case "Sulfuras, Hand of Ragnaros":
-                    return;
-                case "Aged Brie":
-                    incrementQuality(item);
-                    break;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    item.quality -= item.quality;
-                    break;
-                default:
-                    decrementQuality(item);
-                    break;
-            }
+        switch (item.name) {
+            case "Sulfuras, Hand of Ragnaros":
+                return;
+            case "Aged Brie":
+                if (item.sellIn < 0)
+                incrementQuality(item);
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+                if (item.sellIn < 0)
+                item.quality -= item.quality;
+                break;
+            default:
+                if (item.sellIn < 0)
+                decrementQuality(item);
+                break;
         }
     }
 
