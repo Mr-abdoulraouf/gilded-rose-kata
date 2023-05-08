@@ -14,9 +14,7 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
-        if (!"Sulfuras, Hand of Ragnaros".equals(item.name)) {
-            item.sellIn -= 1;
-        }
+
         switch (item.name) {
             case "Aged Brie":
                 updateAgedBrie(item);
@@ -36,12 +34,14 @@ class GildedRose {
     }
 
     private void updateAgedBrie(Item item) {
+        decrementSellIn(item);
         incrementQuality(item);
         if (item.sellIn < 0)
         incrementQuality(item);
     }
 
     private void updateBackstagePasses(Item item) {
+        decrementSellIn(item);
         incrementQuality(item);
 
         if (item.sellIn <= 10) {
@@ -57,14 +57,20 @@ class GildedRose {
 
 
     private void updateConjured(Item item) {
+        decrementSellIn(item);
         decrementQuality(item);
         decrementQuality(item);
     }
 
     private void updateOtherItem(Item item) {
+        decrementSellIn(item);
         decrementQuality(item);
         if (item.sellIn < 0)
             decrementQuality(item);
+    }
+
+    private void decrementSellIn(Item item) {
+        item.sellIn -= 1;
     }
 
     private void incrementQuality(Item item) {
